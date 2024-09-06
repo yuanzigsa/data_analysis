@@ -1,0 +1,66 @@
+<!--
+# @Author  : yuanzi
+# @Time    : 2024/8/31 12:37
+# Website: https://www.yzgsa.com
+# Copyright (c) <yuanzigsa@gmail.com>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL查询执行器</title>
+    <!-- 引入 antd 样式 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/4.23.2/antd.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* 使页面垂直居中 */
+            background-color: #f0f2f5; /* antd 默认背景颜色 */
+        }
+        .container {
+            background-color: #ffffff; /* 背景白色 */
+            padding: 30px; /* 内边距 */
+            border-radius: 8px; /* 圆角 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+            max-width: 600px; /* 最大宽度 */
+            width: 100%; /* 宽度自适应 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">SQL查询执行器</h1> <!-- 标题居中 -->
+{#        <h3>{{ number }}</h3>#}
+        <!-- SQL 查询输入表单 -->
+        <form action="/" method="post">
+            <div class="form-group">
+                <label for="query">输入 SQL 查询:</label>
+                <br/>
+                <!-- 使用 antd Input.TextArea 组件 -->
+                <textarea class="ant-input" id="query" name="sql" rows="3" required></textarea>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <!-- 使用 antd Button 组件 -->
+                <button type="submit" class="ant-btn ant-btn-primary">执行</button>
+            </div>
+        </form>
+
+        <!-- 查询结果展示 -->
+        {% if result %}
+            <h2 style="margin-top: 30px; text-align: center;">查询结果:</h2> <!-- 标题居中 -->
+            <div class="ant-table-wrapper">
+                {{ result|safe }}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- 引入 antd 和 react/react-dom 脚本 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/antd/4.23.2/antd.min.js"></script>
+</body>
+</html>
+
